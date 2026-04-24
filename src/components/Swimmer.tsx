@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import './Swimmer.css'
 import freestyleSheet from '@/assets/freestyle-sheet.png'
 
-const FRAME_COUNT = 41
+const FRAME_COUNT = 77
 // Each sprite frame is 280×360px — height/width ratio
 const FRAME_H_OVER_W = 360 / 280
 

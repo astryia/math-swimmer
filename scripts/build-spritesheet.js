@@ -1,8 +1,11 @@
 // Pre-build script: crops black side bars from freestyle frames and stacks them
 // vertically into a single sprite sheet PNG.
 //
-// Input:  assets/freestyle/01.png .. 41.png  (1280x720 landscape, pool in center)
+// Input:  assets/freestyle/*.png  (1280x720 landscape, pool in center)
 // Output: src/assets/freestyle-sheet.png
+//
+// Frame count is detected automatically — drop new frames in assets/freestyle/
+// and rebuild without changing any code.
 
 import sharp from 'sharp'
 import path from 'path'
@@ -32,11 +35,13 @@ const TARGET_W = 280
 const TARGET_H = 360
 
 async function main() {
-  const frameCount = 41
-  const framePaths = Array.from({ length: frameCount }, (_, i) => {
-    const n = String(i + 1).padStart(2, '0')
-    return path.join(framesDir, `${n}.png`)
-  })
+  // Detect frame count automatically from sorted PNG filenames
+  const framePaths = fs.readdirSync(framesDir)
+    .filter(f => f.endsWith('.png'))
+    .sort()
+    .map(f => path.join(framesDir, f))
+  const frameCount = framePaths.length
+  if (frameCount === 0) throw new Error(`No PNG files found in ${framesDir}`)
 
   console.log(`Processing ${frameCount} frames...`)
 
