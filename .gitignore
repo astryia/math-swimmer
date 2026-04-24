@@ -28,3 +28,15 @@ dist-ssr
 .cursor/*
 .agents/
 .agents/*
+
+# Assets — keep only freestyle frames needed for the sprite-sheet build step.
+# Root-level PNGs/videos/docs are reference files not required at build time.
+assets/*.png
+assets/*.mp4
+assets/*.md
+assets/old_freestyle/
+assets/tmp/
+problem.png
+
+# Generated file — rebuilt on every `npm run build:sprites`
+src/assets/freestyle-sheet.png

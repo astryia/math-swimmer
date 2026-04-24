@@ -1,0 +1,27 @@
+/* Fills the full pool area. overflow:hidden clips to exactly one frame height. */
+.swimmer-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #0077B6; /* water fallback while image loads */
+}
+
+/*
+  The full sprite sheet image is placed at the top-left, width = 100% of viewport.
+  Its natural height = viewport_width × (14760/280) = 52.7 × viewport_width.
+  JS animates transform: translateY(-frame * viewport_width * 1.2857)
+  so the correct frame is always visible in the clipping viewport.
+*/
+.swimmer-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}

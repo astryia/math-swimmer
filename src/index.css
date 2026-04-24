@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  /* Colors derived from the pool sprites */
+  --color-navy: #0A1628;
+  --color-navy-mid: #112240;
+  --color-water: #00B4D8;
+  --color-water-light: #48CAE4;
+  --color-water-dark: #0077B6;
+  --color-correct: #B8FF00;
+  --color-correct-dark: #8BC800;
+  --color-wrong: #FF4136;
+  --color-wrong-dark: #CC1F15;
+  --color-gold: #FFD700;
+  --color-silver: #C0C0C0;
+  --color-bronze: #CD7F32;
+  --color-white: #FFFFFF;
+  --color-text-dim: rgba(255, 255, 255, 0.6);
+
+  /* Typography */
+  --font-display: 'Fredoka', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Spacing */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* Shadows */
+  --shadow-hard: 4px 4px 0px rgba(0, 0, 0, 0.4);
+  --shadow-hard-sm: 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-display);
+  background: var(--color-navy);
+  color: var(--color-white);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  touch-action: manipulation;
+}
+
+button:active {
+  transform: translateY(2px);
+}

@@ -1,0 +1,187 @@
+.home {
+  position: relative;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: #08121f;
+  overflow: hidden;
+}
+
+/* ── Pool hero image ───────────────────────────────────────── */
+.home-hero {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/pool-bg.png');
+  background-size: cover;
+  background-position: center top;
+  /* Fade out toward bottom where the UI lives */
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 80%);
+  mask-image:         linear-gradient(to bottom, black 0%, black 40%, transparent 80%);
+}
+
+/* ── Bottom content panel ──────────────────────────────────── */
+.home-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(16px, 3vmin, 32px) clamp(20px, 5vw, 60px) clamp(24px, 4vmin, 44px);
+  gap: clamp(14px, 2.5vmin, 26px);
+}
+
+/* ── Title ─────────────────────────────────────────────────── */
+.home-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.9;
+  user-select: none;
+}
+
+.home-title-math {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 5vmin, 2.2rem);
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+}
+
+.home-title-swimmer {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 13vmin, 8rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-shadow: 0 4px 32px rgba(0, 180, 216, 0.5);
+}
+
+/* ── Style strip ───────────────────────────────────────────── */
+.style-strip {
+  display: flex;
+  gap: clamp(4px, 1.5vw, 16px);
+  width: 100%;
+  max-width: clamp(300px, 70vmin, 600px);
+}
+
+.style-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: clamp(10px, 2vmin, 18px) 4px clamp(8px, 1.5vmin, 14px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.15s;
+  position: relative;
+}
+
+.style-item.selected {
+  background: rgba(0, 180, 216, 0.18);
+  border-color: var(--color-water);
+  color: var(--color-white);
+}
+
+.style-item.locked {
+  opacity: 0.3;
+}
+
+.style-item-label {
+  font-size: clamp(0.6rem, 1.8vmin, 0.85rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.style-item-dot {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-water);
+  box-shadow: 0 0 8px var(--color-water);
+}
+
+/* ── Distance strip ────────────────────────────────────────── */
+.dist-strip {
+  display: flex;
+  gap: clamp(8px, 2vw, 20px);
+  max-width: clamp(300px, 70vmin, 600px);
+  width: 100%;
+}
+
+.dist-item {
+  flex: 1;
+  padding: clamp(10px, 2vmin, 16px) 4px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 3.5vmin, 2rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.15s;
+}
+
+.dist-item.selected {
+  background: rgba(0, 180, 216, 0.18);
+  border-color: var(--color-water);
+  color: var(--color-white);
+}
+
+.dist-unit {
+  font-size: 0.5em;
+  font-weight: 400;
+  opacity: 0.7;
+  margin-left: 1px;
+}
+
+/* ── Start button ──────────────────────────────────────────── */
+.start-btn {
+  width: 100%;
+  max-width: clamp(300px, 70vmin, 600px);
+  padding: clamp(16px, 3vmin, 24px);
+  border-radius: 100px;          /* pill */
+  background: var(--color-water);
+  color: #08121f;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 3.5vmin, 1.8rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.start-btn:active {
+  background: var(--color-water-dark);
+  transform: scale(0.98);
+}
+
+/* ── Settings link ─────────────────────────────────────────── */
+.settings-link {
+  font-family: var(--font-display);
+  font-size: clamp(0.75rem, 1.8vmin, 0.95rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s;
+}
+
+.settings-link:active {
+  color: rgba(255, 255, 255, 0.7);
+}

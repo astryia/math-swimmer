@@ -1,0 +1,24 @@
+.medal-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  animation: medal-enter 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes medal-enter {
+  from { transform: scale(0) rotate(-15deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg);  opacity: 1; }
+}
+
+.medal-emoji {
+  font-size: 5rem;
+  filter: drop-shadow(0 4px 12px var(--medal-color, #FFD700));
+}
+
+.medal-label {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--medal-color, var(--color-gold));
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}

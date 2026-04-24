@@ -1,0 +1,62 @@
+.numpad {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 10px 10px;
+  min-height: 0;
+}
+
+.numpad-row {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  min-height: 0;
+}
+
+/* Frosted-glass keys — translucent so pool is visible through the panel */
+.numpad-key {
+  flex: 1;
+  height: 100%;
+  min-height: 40px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-white);
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  font-weight: 700;
+  font-family: var(--font-display);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+  transition: background 0.1s, transform 0.1s, box-shadow 0.1s;
+}
+
+.numpad-key:active {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.numpad-key:disabled {
+  opacity: 0.4;
+}
+
+.key-submit {
+  background: rgba(140, 200, 0, 0.75);
+  color: var(--color-navy);
+  border-color: rgba(184, 255, 0, 0.4);
+  font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+}
+
+.key-submit:active {
+  background: rgba(184, 255, 0, 0.9);
+}
+
+.key-back {
+  background: rgba(255, 65, 54, 0.25);
+  color: var(--color-wrong);
+  border-color: rgba(255, 65, 54, 0.35);
+}
+
+.key-back:active {
+  background: rgba(255, 65, 54, 0.45);
+}
