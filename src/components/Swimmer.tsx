@@ -39,8 +39,13 @@ export default function Swimmer({ animationDuration }: Props) {
         frameRef.current = (frameRef.current + framesAdv) % FRAME_COUNT
         lastFrameTimeRef.current = now - (elapsed % frameDurationMs)
 
-        // Move the strip up so frame N is visible in the viewport
-        const frameHeight = viewport!.offsetWidth * FRAME_H_OVER_W
+        // Scale by HEIGHT so exactly one frame fills the viewport top-to-bottom.
+        // frame width = frameHeight / aspect_ratio — wider than the viewport on
+        // tall screens, so the pool is centered and the sides are naturally cropped.
+        const frameHeight = viewport!.offsetHeight
+        const frameWidth  = Math.round(frameHeight / FRAME_H_OVER_W)
+        img!.style.width = `${frameWidth}px`
+        img!.style.left  = `${Math.round((viewport!.offsetWidth - frameWidth) / 2)}px`
         img!.style.transform = `translateY(${-frameRef.current * frameHeight}px)`
       }
 
